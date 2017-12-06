@@ -1,0 +1,18 @@
+* General
+official docker image doesn't run tensorboard (6006) / jupyter
+(8888) automatically
+
+** Create Container
+
+- ~docker run -itd -p 8888:8888 -p 6006:6006 -v
+  /Users/spacegoing/macCodeLab-MBP2015/DNTG/Learning/DeepLearning/tensorflow:/root/CodeLab
+  --name tf tensorflow/tensorflow:nightly-devel-py3~
+
+** Run Jupyter / Tensorboard
+
+- Jupyter: ~/run_jupyter.sh --allow-root~ to run Jupyter
+  Notebook.
+  - Visit ~localhost:8888~ on host
+- Tensorboard: ~tensorboard --logdir /root/CodeLab/logs/~
+  - Visit ~localhost:6006~ on host
+
