@@ -16,3 +16,18 @@ official docker image doesn't run tensorboard (6006) / jupyter
 - Tensorboard: ~tensorboard --logdir /root/CodeLab/logs/~
   - Visit ~localhost:6006~ on host
 
+** Emacs Tramp
+
+- ~SPC f f~ input ~/docker:93f787b31b78:~
+- if container is running, tramp should automatically read dir
+  path: ~/docker:93f787b31b78:/root/~
+
+
+** Emacs Anaconda Mode
+
+*** Multi Python Version
+
+- tf docker has python 2 & 3. python2.7 is default
+- Current SOL: link ~/usr/bin/python~ to 3.5 other than 2.7
+
+
