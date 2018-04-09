@@ -1,0 +1,43 @@
+* Getting Started
+** Basics
+
+- *machine learning dictionary*
+  - https://developers.google.com/machine-learning/glossary
+
+parameters and variables are mathematical concepts here rather
+than programming.
+
+- parameters: tf.placeholder (inputs/parameters, not train-able)
+- variables: tf.Variable (train-able parameters)
+  - call ~tf.global_variables_initializer()~ to initialize
+
+#+BEGIN_SRC python
+  W = tf.Variable([.3], dtype=tf.float32)
+  b = tf.Variable([-.3], dtype=tf.float32)
+  x = tf.placeholder(tf.float32)
+  linear_model = W*x + b
+#+END_SRC
+
+- The ~steps~ argument tells train to stop training after the
+  specified number of iterations. Increasing ~steps~ increases
+  the amount of time the model will train.
+
+** Other Topics
+*** Feature Column
+- https://www.tensorflow.org/get_started/feature_columns
+
+
+** Best Practices
+*** Dataset
+
+#+BEGIN_SRC python
+  dataset = dataset.shuffle(buffer_size=1000).repeat(count=None).batch(batch_size)
+#+END_SRC
+
+- Training works best if the training examples are in random
+  order. To randomize the examples, call
+  ~tf.data.Dataset.shuffle~ . Setting the buffer_size to a value
+  larger than the number of examples (120) ensures that the data
+  will be well shuffled.
+- ~repeat~ has no argument ensure the train method has an
+  infinite supply of (now shuffled) training set examples.
